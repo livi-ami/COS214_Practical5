@@ -11,7 +11,7 @@ class ResponseUnit;
 class Incident {
 public:
     Incident(int id, const std::string& location, const std::string& description);
-    ~Incident();                                    // deletes state_ ONLY
+    ~Incident();
 
     int getId() const;
     const std::string& getLocation() const;
@@ -19,19 +19,15 @@ public:
     std::string getStateName() const;
     bool isActive() const;
 
-    // Lifecycle requests. Each delegates to the current state.
-    // true = accepted (state may or may not have changed), false = rejected.
     bool dispatch();
     bool beginResponse();
     bool resolve();
     bool cancel();
 
-    // Unit bookkeeping (called by ResponseUnit::dispatchTo / standDown).
     void assignUnit(ResponseUnit* unit);
     void releaseUnit(ResponseUnit* unit);
     const std::vector<ResponseUnit*>& getAssignedUnits() const;
 
-    // Observer plumbing (Incident is the Subject).
     void attach(IncidentObserver* observer);
     void detach(IncidentObserver* observer);
 
@@ -44,13 +40,12 @@ private:
     void notifyObservers(const std::string& oldState, const std::string& newState);
     void releaseAllUnits();
 
-    // Keep this declaration order: the constructor's initialiser list must match it.
-    int id_;
+    int id;
     std::string location;
     std::string description;
-    IncidentState* state;                          // OWNED
-    std::vector<ResponseUnit*> units;              // NOT owned
-    std::vector<IncidentObserver*> observers;      // NOT owned
+    IncidentState* state;
+    std::vector<ResponseUnit*> units;
+    std::vector<IncidentObserver*> observers;
 };
 
 #endif
