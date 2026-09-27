@@ -15,12 +15,12 @@ IncidentState* DispatchedState::dispatch(const Incident& /*i*/){
 
     return this;
 }
-IncidentState* DispatchedState::cancel(const Incident& i){
+IncidentState* DispatchedState::cancel(const Incident& /*i*/){
     
     return new CancelledState();
 }
 
-IncidentState* DispatchedState::beginResponse(const Incident& i){
+IncidentState* DispatchedState::beginResponse(const Incident& /*i*/){
     
     return new InProgressState();
 }

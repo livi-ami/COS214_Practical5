@@ -15,7 +15,7 @@ IncidentState* InProgressState::dispatch(const Incident& /*i*/){
 
     return this;
 }
-IncidentState* InProgressState::cancel(const Incident& i){
+IncidentState* InProgressState::cancel(const Incident& /*i*/){
     
     return new CancelledState();
 }
@@ -24,7 +24,7 @@ IncidentState* InProgressState::beginResponse(const Incident& /*i*/){
     
     return this;
 }
-IncidentState* InProgressState::resolve(const Incident& i){
+IncidentState* InProgressState::resolve(const Incident& /*i*/){
     
     return new ResolvedState();
 }

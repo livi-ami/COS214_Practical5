@@ -11,11 +11,11 @@ bool ReportedState::isActive(){
     return true;
 }
 
-IncidentState* ReportedState::dispatch(const Incident& i){
+IncidentState* ReportedState::dispatch(const Incident& /*i*/){
 
     return new DispatchedState();
 }
-IncidentState* ReportedState::cancel(const Incident& i){
+IncidentState* ReportedState::cancel(const Incident& /*i*/){
     
     return new CancelledState();
 }
