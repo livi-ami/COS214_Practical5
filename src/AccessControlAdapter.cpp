@@ -1,5 +1,5 @@
-#include "include/AccessControlAdapter.h"
-#include "include/Area.h"
+#include "AccessControlAdapter.h"
+#include "Area.h"
 
 // Constructor 
 AccessControlAdapter::AccessControlAdapter(LegacyAccessControlSystem* legacySystem) : legacySystem (legacySystem) {}

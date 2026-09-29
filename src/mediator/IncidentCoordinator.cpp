@@ -4,7 +4,15 @@
 #include <iostream>
 
 void IncidentCoordinator::registerColleague(ResponseUnit* unit) {
-    if (!unit) return;
+    if (!unit)
+        return;
+
+    for (ResponseUnit* registeredUnit : units) {
+        if (registeredUnit == unit) {
+            return;
+        }
+    }
+
     units.push_back(unit);
     unit->setMediator(this);
 }

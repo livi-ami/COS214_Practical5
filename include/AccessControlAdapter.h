@@ -16,6 +16,10 @@ class AccessControlAdapter : public AccessControlService {
         virtual ~AccessControlAdapter();
 
     private:
+        // Avoid unnecessary copying
+        AccessControlAdapter(const AccessControlAdapter&) = delete;
+        AccessControlAdapter& operator=(const AccessControlAdapter&) = delete;
+
         LegacyAccessControlSystem* legacySystem;
 };
 
