@@ -14,4 +14,4 @@ COPY . .
 
 RUN make clean && make -j"$(nproc)"
 
-CMD ["./campusguard"]
+CMD ["./main"]

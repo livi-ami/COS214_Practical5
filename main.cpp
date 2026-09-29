@@ -1,22 +1,22 @@
-#include "include/AccessControlAdapter.h"
-#include "include/Area.h"
-#include "include/EmergencyResponseFacade.h"
-#include "include/LegacyAccessControlSystem.h"
+#include "AccessControlAdapter.h"
+#include "Area.h"
+#include "EmergencyResponseFacade.h"
+#include "LegacyAccessControlSystem.h"
 
-#include "include/command/ActivateAlertCommand.h"
-#include "include/command/CancelActionCommand.h"
-#include "include/command/IssueEvacuationCommand.h"
-#include "include/command/OperatorConsole.h"
+#include "ActivateAlertCommand.h"
+#include "CancelActionCommand.h"
+#include "IssueEvacuationCommand.h"
+#include "OperatorConsole.h"
 
-#include "include/domain/FacilitiesTeam.h"
-#include "include/domain/Incident.h"
-#include "include/domain/MedicalTeam.h"
-#include "include/domain/SecurityTeam.h"
+#include "FacilitiesTeam.h"
+#include "Incident.h"
+#include "MedicalTeam.h"
+#include "SecurityTeam.h"
 
-#include "include/mediator/IncidentCoordinator.h"
+#include "IncidentCoordinator.h"
 
-#include "include/observer/Dashboard.h"
-#include "include/observer/IncidentLogger.h"
+#include "Dashboard.h"
+#include "IncidentLogger.h"
 
 #include <iostream>
 

@@ -1,13 +1,13 @@
 CXX := g++
-CXXFLAGS := -std=c++11 -Wall -Wextra -pedantic -g -Iinclude
+CXXFLAGS := -std=c++11 -Wall -Wextra -pedantic -g -MMD -MP
 
-TARGET := campusguard
+TARGET := main
 
-SRC_DIR := src
 BUILD_DIR := build
 
-SRCS := $(shell find $(SRC_DIR) -name '*.cpp' | sort)
-OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS)) $(BUILD_DIR)/main.o
+SRCS := $(wildcard *.cpp)
+OBJS := $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
+DEPS := $(OBJS:.o=.d)
 
 .PHONY: all clean run debug valgrind
 
@@ -16,13 +16,11 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(BUILD_DIR)/main.o: main.cpp
-	@mkdir -p $(dir $@)
+$(BUILD_DIR)/%.o: %.cpp
+	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+-include $(DEPS)
 
 run: $(TARGET)
 	./$(TARGET)
