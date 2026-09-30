@@ -1,5 +1,5 @@
-#include "observer/Dashboard.h"
-#include "domain/Incident.h"
+#include "Dashboard.h"
+#include "Incident.h"
 #include <iostream>
 
 void Dashboard::onIncidentChanged(Incident& incident, const std::string& oldState, const std::string& newState) {

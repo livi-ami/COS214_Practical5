@@ -1,5 +1,5 @@
-#include "observer/IncidentLogger.h"
-#include "domain/Incident.h"
+#include "IncidentLogger.h"
+#include "Incident.h"
 
 void IncidentLogger::onIncidentChanged(Incident& incident, const std::string& oldState, const std::string& newState) {
     entries.push_back("Incident #" + std::to_string(incident.getId()) + ": " + oldState + " -> " + newState);

@@ -1,7 +1,7 @@
 #ifndef INCIDENT_LOGGER_H
 #define INCIDENT_LOGGER_H
 
-#include "observer/IncidentObserver.h"
+#include "IncidentObserver.h"
 #include <vector>
 #include <string>
 

@@ -1,7 +1,7 @@
 #ifndef DASHBOARD_H
 #define DASHBOARD_H
 
-#include "observer/IncidentObserver.h"
+#include "IncidentObserver.h"
 
 //Concrete observer: a live view that prints incident state changes
 class Dashboard : public IncidentObserver {

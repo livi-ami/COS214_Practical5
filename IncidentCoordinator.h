@@ -1,7 +1,7 @@
 #ifndef INCIDENT_COORDINATOR_H
 #define INCIDENT_COORDINATOR_H
 
-#include "mediator/IncidentMediator.h"
+#include "IncidentMediator.h"
 #include <vector>
 
 class ResponseUnit;
